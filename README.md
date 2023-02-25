@@ -1,53 +1,87 @@
-![IronHack Logo](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_d5c5793015fec3be28a63c4fa3dd4d55.png)
 
-# Project: Visualizing Real World Data
+# Project: I+D Cancer investigation in California
 
-## Overview
+__Made by__:
+* Darwin Diaz
+* Ignacio Irace
 
-The goal of this project is to practice creating and interpreting different types of visualizations using real world data.
+## 1. Objectives
 
-**You will be working individually for this project**, but we'll be guiding you along the process and helping you as you go. 
+* __Main Objective__: Cancer investigation focused on medical advances for early identification in California.
 
----
+    * __Secundary Objective 1__: Analize total cases in California for insights
+    * __Secundary Objective 2__: Find which types of cancer can reduce mortaility rate with early detections.
+    * __Secundary Objective 3__: Simulate a timeline between 2013 and 2018 with the count of cases per year and per type.
 
-## Technical Requirements
 
-The technical requirements for this project are as follows:
 
- - Select a dataset from a public source.
- - Create a Jupyter notebook to explore the data using simple visualizations  
- - Explain what insight or information is inferred from these visualizations. The explanation should be in the notebook in markdown cells.
- - Create an intereactive visualization with Tableau, Power BI o similar
+## 2. Question
 
-## Necessary Deliverables
+__Question__: does cancer cases can be reduce with early detection?
 
-The following deliverables should be pushed to your Github repo for this chapter.
-- A **README** explaining the project
-- **A data folder** containing your data set.
-- **A Jupyter notebook** containing your analysis and the code you used to obtain this analysis.
-- A link to the **dashboard**
+__Secundary Questions__:
 
-## Suggested Ways to Get Started
+* Everyone of you have heard about cancer?
+* How many of you know someone that has any cancer?
+* Do you know anyone that has pass away because of cancer?
+* Do feel this last question in sometime will be __no__ ?
 
-* **Find a data set to process** - a great place to start looking would be [Awesome Public Data Sets](https://github.com/awesomedata/awesome-public-datasets), [Kaggle Data Sets](https://www.kaggle.com/datasets), or the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). A great new source is the [Google dataset search](https://toolbox.google.com/datasetsearch).
-* **Perform Preliminary Analysis** - use functions like `describe` to help guide you to the correct insight and data visualization. 
-* **Use the tools in your tool kit** - your knowledge of the different types of visualizations and when to use them should come in handy with this assignment.
-* **Consult documentation and resources provided** to better understand the tools you are using and how to accomplish what you want.
 
-## Project Feedback + Evaluation
+## 3. How the market investigation was structured
 
-* __Technical Requirements__: Did you deliver a project that met all the technical requirements? Given what the class has covered so far, did you build something that was reasonably complex?
+Kindly consider this investigation was not made for business purposes, the main purpose of this investigation is looking for areas where the investigation needs to go further to save lives.
 
-* __Creativity__: Did you add a personal spin or creative element into your project submission? Did you incorporate domain knowledge or unique perspective into your analysis.
+The main country for this investigation is the United States a country with more than 326 millions of population, we look at statistics from each state looking for the one with more cancer cases, Colifonia is the state with more cancer cases registered between 2015 and 2019, the count rises to 871 thousand, almost 1 million. California is the right target for the big number of cancer detected.
 
-* __Code Quality__: Did you follow code style guidance and best practices covered in class?
+The dataset was taken from data world, there are more than 11k registers of cancer surgeries made in California between 2013 and 2017, to make a deeper investigation we look for complementary data like per-capita income, population for every county (the population used in this investigation was 2018 and we used as reference), new detection, mean detection and late detection. The Center for Desease Control and Prevention (CDC) was also a useful site for our investigation, from here we get data like prevention, death, new cases, etc... Wikipedia was also helpful to extract general data like population and per-capita income.
 
-* __Total__: Your instructors will give you a total score on your project between:
+ 
 
-    **Score**|**Expectations**
-    -----|-----
-    0|Does not meet expectations
-    1|Meets expectations, good job!
-    2|Exceeds expectations, you wonderful creature, you!
 
-This will be useful as an overall gauge of whether you met the project goals, but __the more important scores are described in the specs above__, which can help you identify where to focus your efforts for the next project!
+### 3.1. Libraries used
+
+The data was threated using python to apply cleanning and web scrapping models until the data was prepared, further the data is going to be presented into Power BI.
+
+* __Pandas__ : Used for data manipulation and data wrangling.
+* __Requests & Beautifulsoup__ : Used for web scrapping.
+* __Matplotlyb.pyplot__: For sampling visualizations.
+* __Pandas Profiling__ : For sampling visualizations.
+* __Plotly__: Interactive maps.
+
+
+
+### 3.2. Data cleanning process
+
+First, from the 11k lines from California surgeries basic cleanning and ordering data techniques were applied like changing the names, strips and unifying the data as much as posible, for example; # of Cases (ICD 9) and # of Cases (ICD 10) were concatenated into one column because the difference between both is the year were they were applied.
+
+The NA values for county were filled out with "Sacramento" because the Statewide Hospital is in this hospital has the most NA values. Investigating through google we also look for the averge cost of a surgery depending on the cancer type, then applying two different web scrapping scripts to get data from wikipedia, after the web scrapping the county names were adapted to the one from the first dataset.
+
+
+
+## 3.3. Power BI
+
+Power BI is one of the most used tools for visualizations. The dashboard is more focused into the amount of cancer cases and surgeries, basically looking for the hospitals that makes more surgeries per each type of cancer, also some sheets are about demografic data like the counties with mores cancer surgeries and comparissons from costs vs per-capita income per county.
+
+One important data considerated in this dashboard is the detection, a sooner detection depending on the cancer can lower the death probbility which is the main purpose of the software. Area maps were applied to identify the survival probabilities and detection probabilities for then comparing this probabilities per detection (sooner, meand and late) to find the relationship between detection and survival per cancer type.
+
+
+
+## 4. Insights and answer to the main question
+
+### 4.1 Answer
+Basically the question was answer when we structured the market investigation, but why? the answer to this question is the amount of surgeries made in California compared to the rest of states in the US. The amount of surgeries will mark a clear tendency and accurate data.
+
+### 4.2 Insights
+* Breats and Prostate cancer are the most advanced in detection.
+* Most late cancer detections have a lower survivial rate.
+* New cases and mortality rate have a positive correlation.
+
+
+
+
+
+
+
+
+
+
